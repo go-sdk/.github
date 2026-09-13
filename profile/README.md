@@ -6,11 +6,11 @@ A collection of minimal, focused Go libraries for building services and applicat
 
 ## Projects
 
-| Project                                          | Description                                                                            |
-|--------------------------------------------------|----------------------------------------------------------------------------------------|
-| [`core`](https://github.com/go-sdk/core)         | A minimal Go core library for logging, errors, lifecycle, HTTP clients, JSON, and more |
-| [`server`](https://github.com/go-sdk/server)     | A minimal Go service kit for gRPC and grpc-gateway on one port                         |
-| [`database`](https://github.com/go-sdk/database) | A minimal Go database kit for GORM with MySQL, PostgreSQL, and SQLite                  |
+| Project                                          | Description                                                                                                                                                                         |
+|--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`core`](https://github.com/go-sdk/core)         | Base library with configuration, logging, errors, lifecycle, HTTP client, JSON and YAML codecs, sequence generation, and test helpers                                               |
+| [`server`](https://github.com/go-sdk/server)     | Service kit serving native gRPC and grpc-gateway HTTP on one port, with unified request context, logging, JWT auth, validation, recovery, TLS, and graceful shutdown                |
+| [`database`](https://github.com/go-sdk/database) | GORM database kit for MySQL, PostgreSQL, and SQLite, with unified logging, versioned migrations, cross-replica migration locks, JSON fields, and millisecond-timestamp soft deletes |
 
 ## Design Principles
 
@@ -22,7 +22,27 @@ A collection of minimal, focused Go libraries for building services and applicat
 
 ## Architecture
 
-`core` provides the common foundation used by higher-level modules. `server` and `database` remain separate so applications can depend only on the functionality they need.
+`core` provides the common foundation used by higher-level modules. `server` and `database` depend on `core` but remain independent of each other, so applications can depend only on the functionality
+they need.
+
+```text
+server   ───> core
+database ───> core
+```
+
+## Getting Started
+
+All modules require Go 1.27 or higher and can be installed with `go get`:
+
+```bash
+go get github.com/go-sdk/core
+go get github.com/go-sdk/server
+go get github.com/go-sdk/database
+```
+
+## Community
+
+Questions, ideas, and feedback are welcome in [GitHub Discussions](https://github.com/orgs/go-sdk/discussions).
 
 ---
 
@@ -34,11 +54,11 @@ A collection of minimal, focused Go libraries for building services and applicat
 
 ## 项目
 
-| 项目                                             | 描述                                                                               |
-|--------------------------------------------------|------------------------------------------------------------------------------------|
-| [`core`](https://github.com/go-sdk/core)         | 精简的 Go 核心基础类库，提供日志、错误处理、生命周期、HTTP 客户端、JSON 等通用能力 |
-| [`server`](https://github.com/go-sdk/server)     | 精简的 Go 服务基础类库，在同一端口提供 gRPC 和 grpc-gateway                        |
-| [`database`](https://github.com/go-sdk/database) | 基于 GORM 的精简 Go 数据库基础类库，支持 MySQL、PostgreSQL 和 SQLite               |
+| 项目                                             | 描述                                                                                                                               |
+|--------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| [`core`](https://github.com/go-sdk/core)         | 基础类库，提供配置、日志、错误处理、生命周期、HTTP 客户端、JSON 和 YAML 编解码、序列生成和测试辅助                                 |
+| [`server`](https://github.com/go-sdk/server)     | 服务基础类库，在同一端口提供原生 gRPC 和 grpc-gateway HTTP，统一请求上下文、访问日志、JWT 鉴权、参数校验、Recovery、TLS 和优雅停止 |
+| [`database`](https://github.com/go-sdk/database) | 基于 GORM 的数据库基础类库，支持 MySQL、PostgreSQL 和 SQLite，统一日志、版本化迁移、跨副本迁移锁、JSON 字段和毫秒时间戳软删除      |
 
 ## 设计原则
 
@@ -50,4 +70,23 @@ A collection of minimal, focused Go libraries for building services and applicat
 
 ## 架构
 
-`core` 提供高层模块共享的基础能力。`server` 和 `database` 保持相互独立，使应用只需要依赖实际使用的功能。
+`core` 提供高层模块共享的基础能力。`server` 和 `database` 都依赖 `core`，但相互独立，使应用只需要依赖实际使用的功能。
+
+```text
+server   ───> core
+database ───> core
+```
+
+## 快速开始
+
+全部模块要求 Go 1.27 或更高版本，可使用 `go get` 安装：
+
+```bash
+go get github.com/go-sdk/core
+go get github.com/go-sdk/server
+go get github.com/go-sdk/database
+```
+
+## 交流
+
+欢迎在 [GitHub Discussions](https://github.com/orgs/go-sdk/discussions) 提问、分享想法和反馈。
