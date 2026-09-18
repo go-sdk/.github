@@ -14,6 +14,7 @@ keeps application entry points small.
 | [`core`](https://github.com/go-sdk/core)         | Foundation utilities for configuration, logging, errors, lifecycle, command-line applications, HTTP clients, codecs, IDs, and tests.                                                                              |
 | [`database`](https://github.com/go-sdk/database) | GORM toolkit for MySQL, PostgreSQL, and SQLite with opt-in drivers, unified logging, connection-pool configuration, versioned migrations, cross-replica locks, JSON fields, and millisecond soft deletes.         |
 | [`server`](https://github.com/go-sdk/server)     | gRPC and grpc-gateway server on one port with shared request context, structured responses, JWT authentication, Protovalidate, i18n, recovery, TLS, health checks, and graceful shutdown.                         |
+| [`certkit`](https://github.com/go-sdk/certkit)   | X.509 certificate and key store toolkit for parsing, merging, conversion, issuance, revocation checking, trust-root construction, and per-version TLS inspection, supporting RSA, ECDSA, and SM2.                 |
 | [`app`](https://github.com/go-sdk/app)           | Convention-based integration layer for `core`, `database`, and `server`, including global configuration and database access, migration and bootstrap registration, transport registration, and process lifecycle. |
 | [`example`](https://github.com/go-sdk/example)   | Reference application using `app`: Proto-driven PostgreSQL RBAC APIs, file routes, migrations, Docker Compose, generated Gateway bindings, and OpenAPI output.                                                    |
 
@@ -27,6 +28,8 @@ keeps application entry points small.
   custom runtime or only part of the stack.
 - Start from [`example`](https://github.com/go-sdk/example) when you want a complete,
   working project structure rather than isolated API examples.
+- Add [`certkit`](https://github.com/go-sdk/certkit) to any stack when a service
+  needs certificate handling, key stores, revocation checking, or TLS inspection.
 
 ## Architecture
 
@@ -35,11 +38,14 @@ example ──> app ──┬──> core
                   ├──> database ──> core
                   └──> server ────> core
 
+certkit ──> core
+
 custom applications may also depend on core, database, or server directly
 ```
 
-`server` and `database` remain independent. `app` intentionally couples them with
-`core` for applications that prefer one standard startup and shutdown path.
+`server` and `database` remain independent, and `certkit` depends only on `core`.
+`app` intentionally couples them with `core` for applications that prefer one
+standard startup and shutdown path.
 
 ## Getting Started
 
@@ -82,6 +88,7 @@ For standalone modules:
 go get github.com/go-sdk/core@latest
 go get github.com/go-sdk/database@latest
 go get github.com/go-sdk/server@latest
+go get github.com/go-sdk/certkit@latest
 ```
 
 ## Design Principles
@@ -116,6 +123,7 @@ Questions, ideas, and feedback are welcome in
 | [`core`](https://github.com/go-sdk/core)         | 基础工具库，提供配置、日志、错误处理、生命周期、命令行、HTTP 客户端、编解码、ID 和测试辅助。                                        |
 | [`database`](https://github.com/go-sdk/database) | 基于 GORM 的 MySQL、PostgreSQL 和 SQLite 工具库，提供按需驱动、统一日志、连接池配置、版本迁移、跨副本锁、JSON 字段和毫秒软删除。    |
 | [`server`](https://github.com/go-sdk/server)     | 在同一端口提供 gRPC 和 grpc-gateway，统一请求上下文、响应结构、JWT 鉴权、Protovalidate、国际化、Recovery、TLS、健康检查和优雅停止。 |
+| [`certkit`](https://github.com/go-sdk/certkit)   | 统一的 X.509 证书工具包，支持证书、私钥、密钥库的解析、合并、转换、签发、吊销检查、信任根、TLS 分版本探测，覆盖 RSA、ECDSA 和 SM2。 |
 | [`app`](https://github.com/go-sdk/app)           | `core`、`database` 和 `server` 的约定式整合层，统一全局配置与数据库、迁移与 Bootstrap、传输层注册和进程生命周期。                   |
 | [`example`](https://github.com/go-sdk/example)   | 基于 `app` 的完整参考项目，包含 Proto 驱动的 PostgreSQL RBAC API、文件路由、迁移、Docker Compose、Gateway 生成代码和 OpenAPI。      |
 
@@ -129,6 +137,8 @@ Questions, ideas, and feedback are welcome in
   [`server`](https://github.com/go-sdk/server)。
 - 希望从完整项目结构开始，而不是只查看零散 API 示例时，参考
   [`example`](https://github.com/go-sdk/example)。
+- 需要在任意方案中处理证书、密钥库、吊销检查或 TLS 探测时，加入
+  [`certkit`](https://github.com/go-sdk/certkit)。
 
 ## 架构
 
@@ -137,11 +147,13 @@ example ──> app ──┬──> core
                   ├──> database ──> core
                   └──> server ────> core
 
+certkit ──> core
+
 自定义应用也可以直接依赖 core、database 或 server
 ```
 
-`server` 与 `database` 保持相互独立。`app` 则有意将它们与 `core` 整合，为应用提供统一的
-启动和停止链路。
+`server` 与 `database` 保持相互独立，`certkit` 只依赖 `core`。`app` 则有意将它们与
+`core` 整合，为应用提供统一的启动和停止链路。
 
 ## 快速开始
 
@@ -181,6 +193,7 @@ func main() {
 go get github.com/go-sdk/core@latest
 go get github.com/go-sdk/database@latest
 go get github.com/go-sdk/server@latest
+go get github.com/go-sdk/certkit@latest
 ```
 
 ## 设计原则
