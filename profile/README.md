@@ -9,16 +9,17 @@ keeps application entry points small.
 
 ## Projects
 
-| Project                                            | Purpose                                                                                                                                                                                                                                                                            | Docs                                                  |
-|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
-| [`core`](https://github.com/go-sdk/core)           | Foundation utilities for configuration, logging, errors, lifecycle, command-line applications, HTTP clients, codecs, type conversion, IDs, and tests.                                                                                                                              | [Doc](https://pkg.go.dev/github.com/go-sdk/core)      |
-| [`database`](https://github.com/go-sdk/database)   | GORM toolkit for MySQL, PostgreSQL, and SQLite with opt-in drivers, unified logging, connection-pool configuration, versioned migrations, cross-replica locks, JSON fields, millisecond soft deletes, and a Redis client with lease locks.                                         | [Doc](https://pkg.go.dev/github.com/go-sdk/database)  |
-| [`server`](https://github.com/go-sdk/server)       | gRPC and grpc-gateway server on one port with shared request context, structured responses, JWT authentication, permission and audit hooks, Protovalidate, i18n, recovery, TLS, payload logging with redaction, health checks, and graceful shutdown.                              | [Doc](https://pkg.go.dev/github.com/go-sdk/server)    |
-| [`taskkit`](https://github.com/go-sdk/taskkit)     | Go task library built on gocron v2, providing an auto-started dynamic job manager with cron, interval, and one-off schedules, per-job context with run IDs, unified logging and panic recovery, optional distributed locking, and a generic bounded-concurrency parallel executor. | [Doc](https://pkg.go.dev/github.com/go-sdk/taskkit)   |
-| [`certkit`](https://github.com/go-sdk/certkit)     | X.509 certificate and key store toolkit for parsing, merging, conversion, issuance, revocation checking, trust-root construction, and per-version TLS inspection including TLCP, supporting RSA, ECDSA, and SM2.                                                                   | [Doc](https://pkg.go.dev/github.com/go-sdk/certkit)   |
-| [`weclawbot`](https://github.com/go-sdk/weclawbot) | Go SDK for the WeChat ClawBot HTTP JSON protocol, providing QR-code login, long-polling message updates, and text message sending.                                                                                                                                                 | [Doc](https://pkg.go.dev/github.com/go-sdk/weclawbot) |
-| [`app`](https://github.com/go-sdk/app)             | Convention-based integration layer for `core`, `database`, `server`, and `taskkit`, including global configuration, database and Redis access, migration and bootstrap registration, transport and task registration, and process lifecycle.                                       | [Doc](https://pkg.go.dev/github.com/go-sdk/app)       |
-| [`example`](https://github.com/go-sdk/example)     | Reference application using `app`: Proto-driven PostgreSQL RBAC APIs, file routes, migrations, Docker Compose, generated Gateway bindings, and OpenAPI output.                                                                                                                     | [Doc](https://pkg.go.dev/github.com/go-sdk/example)   |
+| Project                                            | Purpose                                                                                                                                                                                                                                                                            | Topics                                                                   | Docs                                                  |
+|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|-------------------------------------------------------|
+| [`core`](https://github.com/go-sdk/core)           | Foundation utilities for configuration, logging, errors, lifecycle, command-line applications, HTTP clients, codecs, type conversion, IDs, and tests.                                                                                                                              | `golang` `configuration` `logging` `lifecycle` `utilities`               | [Doc](https://pkg.go.dev/github.com/go-sdk/core)      |
+| [`database`](https://github.com/go-sdk/database)   | GORM toolkit for MySQL, PostgreSQL, and SQLite with opt-in drivers, unified logging, connection-pool configuration, versioned migrations, cross-replica locks, JSON fields, millisecond soft deletes, and a Redis client with lease locks.                                         | `golang` `gorm` `redis` `sql` `database-migrations`                      | [Doc](https://pkg.go.dev/github.com/go-sdk/database)  |
+| [`server`](https://github.com/go-sdk/server)       | gRPC and grpc-gateway server on one port with shared request context, structured responses, JWT authentication, permission and audit hooks, Protovalidate, i18n, recovery, TLS, payload logging with redaction, health checks, and graceful shutdown.                              | `golang` `grpc` `grpc-gateway` `http-server` `jwt`                       | [Doc](https://pkg.go.dev/github.com/go-sdk/server)    |
+| [`taskkit`](https://github.com/go-sdk/taskkit)     | Go task library built on gocron v2, providing an auto-started dynamic job manager with cron, interval, and one-off schedules, per-job context with run IDs, unified logging and panic recovery, optional distributed locking, and a generic bounded-concurrency parallel executor. | `golang` `cron` `scheduler` `concurrency` `distributed-lock`             | [Doc](https://pkg.go.dev/github.com/go-sdk/taskkit)   |
+| [`certkit`](https://github.com/go-sdk/certkit)     | X.509 certificate and key store toolkit for parsing, merging, conversion, issuance, revocation checking, trust-root construction, and per-version TLS inspection including TLCP, supporting RSA, ECDSA, and SM2.                                                                   | `golang` `x509` `pki` `tls` `sm2`                                        | [Doc](https://pkg.go.dev/github.com/go-sdk/certkit)   |
+| [`weclawbot`](https://github.com/go-sdk/weclawbot) | Go SDK for the WeChat ClawBot HTTP JSON protocol, providing QR-code login, long-polling message updates, and text message sending.                                                                                                                                                 | `golang` `wechat` `clawbot` `qrcode` `long-polling`                      | [Doc](https://pkg.go.dev/github.com/go-sdk/weclawbot) |
+| [`qbot`](https://github.com/go-sdk/qbot)           | Go SDK for QQ bot private and group messaging, providing access token management, text message sending, and signed Webhook callbacks.                                                                                                                                              | `golang` `qq-bot` `chatbot` `webhook` `sdk`                              | [Doc](https://pkg.go.dev/github.com/go-sdk/qbot)      |
+| [`app`](https://github.com/go-sdk/app)             | Convention-based integration layer for `core`, `database`, `server`, and `taskkit`, including global configuration, database and Redis access, migration and bootstrap registration, transport and task registration, and process lifecycle.                                       | `golang` `application-framework` `bootstrap` `lifecycle` `configuration` | [Doc](https://pkg.go.dev/github.com/go-sdk/app)       |
+| [`example`](https://github.com/go-sdk/example)     | Reference application using `app`: Proto-driven PostgreSQL RBAC APIs, file routes, migrations, Docker Compose, generated Gateway bindings, and OpenAPI output.                                                                                                                     | `golang` `grpc` `rbac` `postgresql` `docker-compose`                     | [Doc](https://pkg.go.dev/github.com/go-sdk/example)   |
 
 ## Versions
 
@@ -30,6 +31,7 @@ keeps application entry points small.
 | [`taskkit`](https://github.com/go-sdk/taskkit)     | ![GitHub Tag](https://img.shields.io/github/v/tag/go-sdk/taskkit?include_prereleases&sort=semver&style=flat-square)   | ![GitHub last commit](https://img.shields.io/github/last-commit/go-sdk/taskkit?style=flat-square)   |
 | [`certkit`](https://github.com/go-sdk/certkit)     | ![GitHub Tag](https://img.shields.io/github/v/tag/go-sdk/certkit?include_prereleases&sort=semver&style=flat-square)   | ![GitHub last commit](https://img.shields.io/github/last-commit/go-sdk/certkit?style=flat-square)   |
 | [`weclawbot`](https://github.com/go-sdk/weclawbot) | ![GitHub Tag](https://img.shields.io/github/v/tag/go-sdk/weclawbot?include_prereleases&sort=semver&style=flat-square) | ![GitHub last commit](https://img.shields.io/github/last-commit/go-sdk/weclawbot?style=flat-square) |
+| [`qbot`](https://github.com/go-sdk/qbot)           | ![GitHub Tag](https://img.shields.io/github/v/tag/go-sdk/qbot?include_prereleases&sort=semver&style=flat-square)      | ![GitHub last commit](https://img.shields.io/github/last-commit/go-sdk/qbot?style=flat-square)      |
 | [`app`](https://github.com/go-sdk/app)             | ![GitHub Tag](https://img.shields.io/github/v/tag/go-sdk/app?include_prereleases&sort=semver&style=flat-square)       | ![GitHub last commit](https://img.shields.io/github/last-commit/go-sdk/app?style=flat-square)       |
 
 ## Choose a Starting Point
@@ -49,6 +51,8 @@ keeps application entry points small.
   needs certificate handling, key stores, revocation checking, or TLS inspection.
 - Add [`weclawbot`](https://github.com/go-sdk/weclawbot) to any stack when a service
   needs WeChat ClawBot integration via QR-code login, message polling, or text sending.
+- Add [`qbot`](https://github.com/go-sdk/qbot) to any stack when a service needs QQ bot
+  integration via private or group text messaging and signed Webhook callbacks.
 
 ## Architecture
 
@@ -62,11 +66,13 @@ certkit ──> core
 
 weclawbot ──> core
 
+qbot ──> core
+
 custom applications may also depend on core, database, or server directly
 ```
 
-`server` and `database` remain independent, and `taskkit`, `certkit`, and
-`weclawbot` depend only on `core`.
+`server` and `database` remain independent, and `taskkit`, `certkit`, `weclawbot`, and
+`qbot` depend only on `core`.
 `app` intentionally couples them with `core` for applications that prefer one
 standard startup and shutdown path.
 
@@ -114,6 +120,7 @@ go get github.com/go-sdk/server@latest
 go get github.com/go-sdk/taskkit@latest
 go get github.com/go-sdk/certkit@latest
 go get github.com/go-sdk/weclawbot@latest
+go get github.com/go-sdk/qbot@latest
 ```
 
 ## Design Principles
@@ -143,16 +150,17 @@ Questions, ideas, and feedback are welcome in
 
 ## 项目
 
-| 项目                                               | 定位                                                                                                                                                                       | 文档                                                   |
-|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------|
-| [`core`](https://github.com/go-sdk/core)           | 基础工具库，提供配置、日志、错误处理、生命周期、命令行、HTTP 客户端、编解码、类型转换、ID 和测试辅助。                                                                     | [文档](https://pkg.go.dev/github.com/go-sdk/core)      |
-| [`database`](https://github.com/go-sdk/database)   | 基于 GORM 的 MySQL、PostgreSQL 和 SQLite 工具库，提供按需驱动、统一日志、连接池配置、版本迁移、跨副本锁、JSON 字段、毫秒软删除，以及带租约锁的 Redis 客户端。              | [文档](https://pkg.go.dev/github.com/go-sdk/database)  |
-| [`server`](https://github.com/go-sdk/server)       | 在同一端口提供 gRPC 和 grpc-gateway，统一请求上下文、响应结构、JWT 鉴权、权限与审计钩子、Protovalidate、国际化、Recovery、TLS、带脱敏的 Payload 日志、健康检查和优雅停止。 | [文档](https://pkg.go.dev/github.com/go-sdk/server)    |
-| [`taskkit`](https://github.com/go-sdk/taskkit)     | 基于 gocron v2 的任务基础类库，提供自动启动的动态任务管理器，支持 Cron、间隔和一次性调度、任务级 Context、统一日志与 panic 恢复、可选分布式锁，以及泛型受控并发执行器。    | [文档](https://pkg.go.dev/github.com/go-sdk/taskkit)   |
-| [`certkit`](https://github.com/go-sdk/certkit)     | 统一的 X.509 证书工具包，支持证书、私钥、密钥库的解析、合并、转换、签发、吊销检查、信任根、TLS 分版本探测（含 TLCP），覆盖 RSA、ECDSA 和 SM2。                             | [文档](https://pkg.go.dev/github.com/go-sdk/certkit)   |
-| [`weclawbot`](https://github.com/go-sdk/weclawbot) | 微信 ClawBot HTTP JSON 协议的 Go SDK，提供二维码登录、消息长轮询和文本消息发送。                                                                                           | [文档](https://pkg.go.dev/github.com/go-sdk/weclawbot) |
-| [`app`](https://github.com/go-sdk/app)             | `core`、`database`、`server` 和 `taskkit` 的约定式整合层，统一全局配置、数据库与 Redis 访问、迁移与 Bootstrap、传输层与任务注册和进程生命周期。                            | [文档](https://pkg.go.dev/github.com/go-sdk/app)       |
-| [`example`](https://github.com/go-sdk/example)     | 基于 `app` 的完整参考项目，包含 Proto 驱动的 PostgreSQL RBAC API、文件路由、迁移、Docker Compose、Gateway 生成代码和 OpenAPI。                                             | [文档](https://pkg.go.dev/github.com/go-sdk/example)   |
+| 项目                                               | 定位                                                                                                                                                                       | Topics                                                                   | 文档                                                   |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------|
+| [`core`](https://github.com/go-sdk/core)           | 基础工具库，提供配置、日志、错误处理、生命周期、命令行、HTTP 客户端、编解码、类型转换、ID 和测试辅助。                                                                     | `golang` `configuration` `logging` `lifecycle` `utilities`               | [文档](https://pkg.go.dev/github.com/go-sdk/core)      |
+| [`database`](https://github.com/go-sdk/database)   | 基于 GORM 的 MySQL、PostgreSQL 和 SQLite 工具库，提供按需驱动、统一日志、连接池配置、版本迁移、跨副本锁、JSON 字段、毫秒软删除，以及带租约锁的 Redis 客户端。              | `golang` `gorm` `redis` `sql` `database-migrations`                      | [文档](https://pkg.go.dev/github.com/go-sdk/database)  |
+| [`server`](https://github.com/go-sdk/server)       | 在同一端口提供 gRPC 和 grpc-gateway，统一请求上下文、响应结构、JWT 鉴权、权限与审计钩子、Protovalidate、国际化、Recovery、TLS、带脱敏的 Payload 日志、健康检查和优雅停止。 | `golang` `grpc` `grpc-gateway` `http-server` `jwt`                       | [文档](https://pkg.go.dev/github.com/go-sdk/server)    |
+| [`taskkit`](https://github.com/go-sdk/taskkit)     | 基于 gocron v2 的任务基础类库，提供自动启动的动态任务管理器，支持 Cron、间隔和一次性调度、任务级 Context、统一日志与 panic 恢复、可选分布式锁，以及泛型受控并发执行器。    | `golang` `cron` `scheduler` `concurrency` `distributed-lock`             | [文档](https://pkg.go.dev/github.com/go-sdk/taskkit)   |
+| [`certkit`](https://github.com/go-sdk/certkit)     | 统一的 X.509 证书工具包，支持证书、私钥、密钥库的解析、合并、转换、签发、吊销检查、信任根、TLS 分版本探测（含 TLCP），覆盖 RSA、ECDSA 和 SM2。                             | `golang` `x509` `pki` `tls` `sm2`                                        | [文档](https://pkg.go.dev/github.com/go-sdk/certkit)   |
+| [`weclawbot`](https://github.com/go-sdk/weclawbot) | 微信 ClawBot HTTP JSON 协议的 Go SDK，提供二维码登录、消息长轮询和文本消息发送。                                                                                           | `golang` `wechat` `clawbot` `qrcode` `long-polling`                      | [文档](https://pkg.go.dev/github.com/go-sdk/weclawbot) |
+| [`qbot`](https://github.com/go-sdk/qbot)           | QQ 机器人单聊和群聊的 Go SDK，提供 Access Token 管理、文本消息发送和 Webhook 验签接收。                                                                                    | `golang` `qq-bot` `chatbot` `webhook` `sdk`                              | [文档](https://pkg.go.dev/github.com/go-sdk/qbot)      |
+| [`app`](https://github.com/go-sdk/app)             | `core`、`database`、`server` 和 `taskkit` 的约定式整合层，统一全局配置、数据库与 Redis 访问、迁移与 Bootstrap、传输层与任务注册和进程生命周期。                            | `golang` `application-framework` `bootstrap` `lifecycle` `configuration` | [文档](https://pkg.go.dev/github.com/go-sdk/app)       |
+| [`example`](https://github.com/go-sdk/example)     | 基于 `app` 的完整参考项目，包含 Proto 驱动的 PostgreSQL RBAC API、文件路由、迁移、Docker Compose、Gateway 生成代码和 OpenAPI。                                             | `golang` `grpc` `rbac` `postgresql` `docker-compose`                     | [文档](https://pkg.go.dev/github.com/go-sdk/example)   |
 
 ## 版本
 
@@ -164,6 +172,7 @@ Questions, ideas, and feedback are welcome in
 | [`taskkit`](https://github.com/go-sdk/taskkit)     | ![GitHub Tag](https://img.shields.io/github/v/tag/go-sdk/taskkit?include_prereleases&sort=semver&style=flat-square)   | ![GitHub last commit](https://img.shields.io/github/last-commit/go-sdk/taskkit?style=flat-square)   |
 | [`certkit`](https://github.com/go-sdk/certkit)     | ![GitHub Tag](https://img.shields.io/github/v/tag/go-sdk/certkit?include_prereleases&sort=semver&style=flat-square)   | ![GitHub last commit](https://img.shields.io/github/last-commit/go-sdk/certkit?style=flat-square)   |
 | [`weclawbot`](https://github.com/go-sdk/weclawbot) | ![GitHub Tag](https://img.shields.io/github/v/tag/go-sdk/weclawbot?include_prereleases&sort=semver&style=flat-square) | ![GitHub last commit](https://img.shields.io/github/last-commit/go-sdk/weclawbot?style=flat-square) |
+| [`qbot`](https://github.com/go-sdk/qbot)           | ![GitHub Tag](https://img.shields.io/github/v/tag/go-sdk/qbot?include_prereleases&sort=semver&style=flat-square)      | ![GitHub last commit](https://img.shields.io/github/last-commit/go-sdk/qbot?style=flat-square)      |
 | [`app`](https://github.com/go-sdk/app)             | ![GitHub Tag](https://img.shields.io/github/v/tag/go-sdk/app?include_prereleases&sort=semver&style=flat-square)       | ![GitHub last commit](https://img.shields.io/github/last-commit/go-sdk/app?style=flat-square)       |
 
 ## 如何选择
@@ -182,6 +191,8 @@ Questions, ideas, and feedback are welcome in
   [`certkit`](https://github.com/go-sdk/certkit)。
 - 需要通过二维码登录、消息长轮询或文本发送接入微信 ClawBot 时，加入
   [`weclawbot`](https://github.com/go-sdk/weclawbot)。
+- 需要通过单聊、群聊文本消息和 Webhook 验签接收接入 QQ 机器人时，加入
+  [`qbot`](https://github.com/go-sdk/qbot)。
 
 ## 架构
 
@@ -195,10 +206,12 @@ certkit ──> core
 
 weclawbot ──> core
 
+qbot ──> core
+
 自定义应用也可以直接依赖 core、database 或 server
 ```
 
-`server` 与 `database` 保持相互独立，`taskkit`、`certkit` 和 `weclawbot` 只依赖 `core`。
+`server` 与 `database` 保持相互独立，`taskkit`、`certkit`、`weclawbot` 和 `qbot` 只依赖 `core`。
 `app` 则有意将它们与 `core` 整合，为应用提供统一的启动和停止链路。
 
 ## 快速开始
@@ -242,6 +255,7 @@ go get github.com/go-sdk/server@latest
 go get github.com/go-sdk/taskkit@latest
 go get github.com/go-sdk/certkit@latest
 go get github.com/go-sdk/weclawbot@latest
+go get github.com/go-sdk/qbot@latest
 ```
 
 ## 设计原则
